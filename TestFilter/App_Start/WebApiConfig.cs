@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace WebApi1
+namespace TestFilter
 {
     public static class WebApiConfig
     {
@@ -19,6 +19,9 @@ namespace WebApi1
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Filters.Add(new MyAuthorFilter());
+            config.Filters.Add(new MyExceptionFilter());
         }
     }
 }
